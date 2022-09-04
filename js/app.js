@@ -38,3 +38,41 @@ const setCategory = async () => {
 }
 
 setCategory();
+
+
+
+// =============Spinner===========//
+const toggleSpinner = isLoading => {
+    const spinnerSection = document.getElementById('spinner');
+    if (isLoading) {
+        spinnerSection.classList.remove('d-none')
+    } else {
+        spinnerSection.classList.add('d-none')
+    }
+}
+
+
+
+const loadAllNews = async (category_id) => {
+
+    // ===========Spinner Start======//
+    toggleSpinner(true);
+
+    const url = https://openapi.programming-hero.com/api/news/category/${category_id};
+
+    const res = await fetch(url);
+    const data = await res.json();
+    
+    displayNewsItem(data.data);
+    
+}
+
+const displayNewsItem = newsAll => {
+    
+
+    
+    newsAll.sort((a, b) => {
+        return b.total_view - a.total_view;
+    });
+
+    const newsCount = document.getElementById('news-count').innerHTML = ${newsAll.length} items found for category;
