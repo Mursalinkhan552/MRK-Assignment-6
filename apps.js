@@ -73,7 +73,7 @@ const displayNewsItem = newsAll => {
     const newsCount = document.getElementById('news-count').innerHTML = `${newsAll.length} items found for category`;
 
 
-    // =============No News==============//
+    // =============No News Here ==============//
     const noNews = document.getElementById('no-news-category');
     if (newsAll.length === 0) {
         noNews.classList.remove('d-none');
@@ -132,7 +132,7 @@ const displayNewsItem = newsAll => {
         newsContainer.appendChild(div);
     })
 
-    // =============Spinner Stop==============//
+    // =============Spinner Stop ready ==============//
     toggleSpinner(false);
 
 }
