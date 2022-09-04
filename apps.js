@@ -53,7 +53,7 @@ const loadAllNews = async (category_id) => {
     // ===========Spinner Start======//
     toggleSpinner(true);
 
-    const url = https://openapi.programming-hero.com/api/news/category/${category_id};
+    const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`;
 
     const res = await fetch(url);
     const data = await res.json();
@@ -70,7 +70,7 @@ const displayNewsItem = newsAll => {
         return b.total_view - a.total_view;
     });
 
-    const newsCount = document.getElementById('news-count').innerHTML = ${newsAll.length} items found for category;
+    const newsCount = document.getElementById('news-count').innerHTML = `${newsAll.length} items found for category`;
 
 
     // =============No News==============//
@@ -138,7 +138,7 @@ const displayNewsItem = newsAll => {
 }
 
 const loadNewsDetails = async news_id => {
-    const url = https://openapi.programming-hero.com/api/news/${news_id};
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`;
     const res = await fetch(url);
     const data = await res.json();
     displayNewsDetails(data.data[0]);
